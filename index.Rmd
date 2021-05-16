@@ -1,0 +1,31 @@
+---
+title: "R packages for Ecology"
+author: "Abhishek Kumar"
+date: "16/05/2021"
+output: 
+  html_document:
+    theme: cerulean
+    highlight: tango
+    code_folding: hide
+---
+
+# Useful R packages for Ecology
+
+```{r message=FALSE, warning=FALSE}
+library(DT)
+rp <- read.csv("data.csv")
+datatable(rp,
+	    caption = "Useful R packages for Ecology",
+	    colnames = c("r package" = "r_package"),
+	    filter = "top",
+	    options = list(
+	    	autoWidth = TRUE,
+	    	initComplete = JS(
+	    	"function(settings, json) {",
+	    	"$(this.api().table().header()).css({'background-color': '#317eac', 'color': '#fff'});",
+	    	"}")),
+	    
+	    ) %>%
+	formatStyle("r package", fontFamily = "italic")
+```
+
